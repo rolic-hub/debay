@@ -103,11 +103,12 @@ const ConnectWallet = ({ connect, setConnect, setUns }) => {
 
   // Logout and delete user
   const handleLogout = async () => {
-    if (!uauth) {
-      return;
-    }
-
-    await uauth.logout();
+    await uauth.logout({clientID: process.env.REACT_APP_CLIENT_ID,
+    scope: "openid email wallet",
+    redirectUri: "https://debayapp.vercel.app/callback",})
+    setSwitch("")
+    setConnect(false)
+   
   };
 
   useEffect(() => {
