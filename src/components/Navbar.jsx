@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+import {useMoralis} from 'react-moralis'
 
-import { MdOutlineHistory, MdPictureInPictureAlt } from "react-icons/md";
+import { MdPictureInPictureAlt } from "react-icons/md";
 import { Button, Modal, Input, Typography } from "antd";
 import { GiShoppingCart } from "react-icons/gi";
 
@@ -12,6 +13,7 @@ import profile from "../assets/profile1.jpg";
 import Profile from "./profile";
 import { useIntegraContext } from "../utils/integration";
 
+
 import ConnectWallet from "./connectwallet";
 
 const Navbar = () => {
@@ -20,11 +22,13 @@ const Navbar = () => {
 
   const { handleOk } = useIntegraContext();
   const { Title } = Typography;
+  const {isAuthenticated, account} = useMoralis();
 
   const [showcategory, setshowcategory] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [connect, setConnect] = useState(false);
+  const [uns, setUns] = useState(false)
 
   return (
     <div>
@@ -59,10 +63,10 @@ const Navbar = () => {
               alt="profile"
             />
           </strong>
-          <strong>Account Details</strong>
+         {isAuthenticated || uns ? account : "Connect Wallet"}
         </Button>
 
-        <ConnectWallet connect={connect} setConnect={setConnect} />
+        <ConnectWallet connect={connect} setConnect={setConnect} setUns={setUns} />
 
         <div>
           {" "}

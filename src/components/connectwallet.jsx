@@ -16,7 +16,7 @@ import metamask from '../assets/metamask.png'
 import unstoppable from '../assets/unstoppabledomains.webp'
 import wallet from '../assets/wallet.png'
 
-const ConnectWallet = ({ connect, setConnect }) => {
+const ConnectWallet = ({ connect, setConnect, setUns }) => {
   const [chain, setchain] = useState("");
   const [chainName, setChainName] = useState("");
   const [loading, setLoading] = useState(false);
@@ -83,8 +83,10 @@ const ConnectWallet = ({ connect, setConnect }) => {
       setSwitch("Unstoppable");
       const authorization = await uauth.loginWithPopup();
       setConnect(true);
+      setUns(true);
       setAuth(authorization);
       getBalance(authorization.idToken.wallet_address);
+      
     } catch (error) {
       console.error(error);
     }
