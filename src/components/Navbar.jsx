@@ -63,7 +63,7 @@ const Navbar = () => {
               alt="profile"
             />
           </strong>
-         {isAuthenticated || uns ? account : "Connect Wallet"}
+         {isAuthenticated || uns ? "Connected" : "Connect Wallet"}
         </Button>
 
         <ConnectWallet connect={connect} setConnect={setConnect} setUns={setUns} />
