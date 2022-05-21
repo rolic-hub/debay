@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 
 import { MdOutlineHistory, MdPictureInPictureAlt } from "react-icons/md";
-import { Button, Modal, Input, Select, Typography } from "antd";
+import { Button, Modal, Input, Typography } from "antd";
 import { GiShoppingCart } from "react-icons/gi";
 
 import { useApiContext } from "../utils/ApiCode";
@@ -11,13 +11,13 @@ import Cart from "./Cart";
 import profile from "../assets/profile1.jpg";
 import Profile from "./profile";
 import { useIntegraContext } from "../utils/integration";
-import { useMoralis } from "react-moralis";
+
 import ConnectWallet from "./connectwallet";
 
 const Navbar = () => {
   const { Category, productid } = useApiContext();
   const { Search } = Input;
-  const { Option } = Select;
+
   const { handleOk } = useIntegraContext();
   const { Title } = Typography;
 
@@ -30,7 +30,7 @@ const Navbar = () => {
     <div>
       <div className="Navbar">
         <Title level={3}>
-          <Link to="/">Headline</Link>
+          <Link to="/">Debay</Link>
         </Title>
 
         <Search
@@ -103,20 +103,10 @@ const Navbar = () => {
           >
             <Profile />
           </Modal>
-          <Button
-            onClick={() => setShowProfile(true)}
-            style={{
-              backgroundColor: "transparent",
-              border: "none",
-              marginRight: "10px",
-            }}
-            icon={<MdOutlineHistory size={"30px"} />}
-          ></Button>
+         
         </div>
       </div>
-      <div
-        style={{backgroundColor: "black", display: "flex" }}
-      >
+      <div style={{ backgroundColor: "black", display: "flex" }}>
         <strong
           className="sub-category"
           onClick={() =>
@@ -128,7 +118,12 @@ const Navbar = () => {
         {showcategory && (
           <div className="showcategory" style={{ marginTop: "0.7rem" }}>
             {Category.map((item) => (
-              <Link style={{color:"aliceblue"}} to={`/category/${item}`} key={item} className="links">
+              <Link
+                style={{ color: "aliceblue" }}
+                to={`/category/${item}`}
+                key={item}
+                className="links"
+              >
                 {item}{" "}
               </Link>
             ))}

@@ -13,5 +13,6 @@ background: radial-gradient(circle, rgba(63,183,171,0.22779534176952032) 0%, rgb
   border-radius: 8px;
   margin-top: 20rem;
   color: cadetblue;
-  
+  margin-left:5rem;
+  margin-right: 5rem;  
 }

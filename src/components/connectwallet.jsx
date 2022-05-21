@@ -74,7 +74,7 @@ const ConnectWallet = ({ connect, setConnect }) => {
   const uauth = new UAuth({
     clientID: process.env.REACT_APP_CLIENT_ID,
     scope: "openid email wallet",
-    redirectUri: "http://localhost:3000/callback",
+    redirectUri: "https://debayapp.vercel.app/callback",
   });
 
   const handleLogin = async () => {
