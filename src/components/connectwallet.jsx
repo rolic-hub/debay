@@ -125,7 +125,7 @@ const ConnectWallet = ({ connect, setConnect, setUns }) => {
       case "":
         return (
           <>
-            <strong style={{ marginTop: "-50px" }}>Headline</strong>
+            <strong style={{ marginTop: "-50px" }}>This project is currently configured for Testnet</strong>
             <br />
             <div>
               <Button onClick={login} style={{ margin: "5px" }}>
