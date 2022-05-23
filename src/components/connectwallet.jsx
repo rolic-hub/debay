@@ -75,6 +75,7 @@ const ConnectWallet = ({ connect, setConnect, setUns }) => {
       setConnect(false);
       setSwitch("Unstoppable");
       const authorization = await uauth.loginWithPopup();
+      
       setConnect(true);
       setUns(true);
       setAuth(authorization);
